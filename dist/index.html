@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template</title>
+
+    <style>
+      /* Tab Styling */
+      .tabs {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .tab {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+      }
+      .active-tab {
+        background-color: #ddd;
+        font-weight: bold;
+      }
+
+      .project {
+        display: none;
+      }
+
+      #project1 img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+      }
+
+      /* Styling for Default Buttons (Optional) */
+      .default-buttons {
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/index-D62Do0sp.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>CAESHA CABITON</h1>
+      <p>BDCI | SAPL</p>
+    </header>
+
+    <!-- Default Buttons Section (We will hide these) -->
+    <div class="default-buttons" id="default-buttons">
+      <button id="default-project1">Project 1</button>
+      <button id="default-project2">Project 2</button>
+      <button id="default-project3">Project 3</button>
+    </div>
+
+    <!-- Tab System -->
+    <div class="tabs" id="tabs">
+      <div class="tab active-tab" id="tab-project1">Project 1</div>
+      <div class="tab" id="tab-project2">Project 2</div>
+      <div class="tab" id="tab-project3">Project 3</div>
+    </div>
+
+<!-- Project 1 Section -->
+<div id="project1" class="project">
+  <h2><strong>| PROJECT 1: CADAVRE EXQUIS |</strong></h2>
+  <img src="/3d_models/project1/cadavre-exquis-caesha-cabiton.jpg" alt="Cadavre Exquis by Caesha Cabiton" />
+  <p><strong>EVOLUTION OF THE SELF:</strong> <br> EXPLORES HOW GROWTH AND TRANSFORMATION CAN SHAPE US,<br>
+    YET NEVER TRULY ALTER THE ESSENCE OF WHO WE ARE.<br>
+    IN ALL POSSIBILITIES, REMEMBER WHO YOU ARE.</p>
+  
+  <!-- Add the video here -->
+  <video width="100%" controls style="max-width: 600px; height: auto;">
+    <source src="/3d_models/project1/cadavre-exquis-caesha-cabiton-vid.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  
+  <!-- Add the new image and description here -->
+  <div id="new-image">
+    <img src="/3d_models/project1/cadavre-exquis-sources.jpg" alt="Cadavre Exquis Sources" style="max-width: 600px; height: auto; margin-top: 20px;" />
+    <p>SOURCES FOR THE CONCEPT.</p>
+  </div>
+</div>
+
+    <!-- Project 2 Section -->
+    <div id="project2" class="project">
+      <h2>Project 2</h2>
+      <p>Description for Project 2 goes here.</p>
+    </div>
+
+    <!-- Project 3 Section -->
+    <div id="project3" class="project">
+      <h2>Project 3</h2>
+      <p>Description for Project 3 goes here.</p>
+    </div>
+
+    <script>
+      // Wait for the page to load before executing JavaScript
+      window.onload = function () {
+        // Hide the default buttons
+        const defaultButtons = document.getElementById("default-buttons");
+        if (defaultButtons) {
+          defaultButtons.style.display = "none";
+        }
+
+        // Tab and Project Toggle Logic
+        const tabProject1 = document.getElementById("tab-project1");
+        const tabProject2 = document.getElementById("tab-project2");
+        const tabProject3 = document.getElementById("tab-project3");
+
+        const project1 = document.getElementById("project1");
+        const project2 = document.getElementById("project2");
+        const project3 = document.getElementById("project3");
+
+        // Function to show the clicked project
+        function showProject(projectToShow) {
+          // Hide all projects
+          project1.style.display = "none";
+          project2.style.display = "none";
+          project3.style.display = "none";
+
+          // Remove active tab styling
+          tabProject1.classList.remove("active-tab");
+          tabProject2.classList.remove("active-tab");
+          tabProject3.classList.remove("active-tab");
+
+          // Show the selected project
+          projectToShow.style.display = "block";
+        }
+
+        // Event listeners for each tab
+        tabProject1.addEventListener("click", function () {
+          showProject(project1);
+          tabProject1.classList.add("active-tab");
+        });
+
+        tabProject2.addEventListener("click", function () {
+          showProject(project2);
+          tabProject2.classList.add("active-tab");
+        });
+
+        tabProject3.addEventListener("click", function () {
+          showProject(project3);
+          tabProject3.classList.add("active-tab");
+        });
+
+        // Initialize with Project 1 visible
+        showProject(project1);
+      };
+    </script>
+  </body>
+</html>
